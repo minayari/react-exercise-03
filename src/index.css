@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.userCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.userCardContainer__item {
+  width: 10rem;
+  height: 14rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userCardContainer__item img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.userCardContainer__item h3 {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 0.8rem;
+}
+
+.userCardContainer__item span {
+  font-size: 0.75rem;
+  margin-top: 0.3rem;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputContainer input {
+  width: 20rem;
+  height: 2rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+
+.inputContainer input:focus {
+  outline: none;
+}
