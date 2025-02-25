@@ -1,19 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 import UserCard from "../components/UserCard";
+import api from "../api/api";
 
 export default function MainPage() {
   const [users, setUsers] = useState([]);
   const inputRef = useRef(null);
   const [searchResult, setSearchResult] = useState([]);
 
+  async function fetcher() {
+    const data = await api.get("api/?results=50");
+    localStorage.setItem("users", JSON.stringify(data.data.results));
+    setUsers(data.data.results);
+    return data.data.results;
+  }
+
   useEffect(() => {
     if (!localStorage.getItem("users")) {
-      fetch("https://randomuser.me/api/?results=50")
-        .then((res) => res.json())
-        .then((json) => {
-          localStorage.setItem("users", JSON.stringify(json.results));
-          setUsers(json.results);
-        });
+      fetcher();
     } else {
       const userData = JSON.parse(localStorage.getItem("users"));
       setUsers(userData);
