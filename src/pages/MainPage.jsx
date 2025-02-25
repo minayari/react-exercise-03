@@ -1,11 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import UserCard from "../components/UserCard";
 import api from "../api/api";
+import RecentCard from "../components/recentCard";
 
 export default function MainPage() {
   const [users, setUsers] = useState([]);
   const inputRef = useRef(null);
   const [searchResult, setSearchResult] = useState([]);
+  const recentData = JSON.parse(localStorage.getItem("recent"));
+
+  console.log(recentData);
 
   async function fetcher() {
     const data = await api.get("api/?results=50");
@@ -50,6 +54,20 @@ export default function MainPage() {
           type="text"
           placeholder="Search..."
         />
+      </div>
+      <div className="recentContainer">
+        <h2>Recent contacts:</h2>
+        <div className="recentCards">
+          {recentData.map((data) => (
+            <RecentCard
+              img={data.img}
+              title={data.title}
+              firstName={data.firstName}
+              lastName={data.lastName}
+              key={`${data.firstName}-${data.phone}`}
+            />
+          ))}
+        </div>
       </div>
       <div className="userCardContainer">
         {searchResult.length === 0

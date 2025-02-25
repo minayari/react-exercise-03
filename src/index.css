@@ -18,6 +18,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 0.5rem;
 }
 
 .userCardContainer__item img {
@@ -60,23 +61,40 @@
   align-items: center;
   width: 50rem;
   height: 30rem;
-  margin: 3rem auto ;
+  margin: 3rem auto;
   box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.3);
   border-radius: 2rem;
 }
 
-.singelContact img{
+.singelContact img {
   width: 13rem;
   margin-top: 4rem;
   border-radius: 50%;
 }
 
-.singelContact h2{
+.singelContact h2 {
   font-size: 2rem;
   margin-top: 2rem;
 }
 
-.singelContact h4{
+.singelContact h4 {
   font-size: 1.5rem;
   margin-top: 1rem;
+}
+
+.recentContainer {
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.recentContainer h2{
+  font-size: 1.3rem;
+  color: grey;
+}
+
+.recentCards {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1rem 0;
 }

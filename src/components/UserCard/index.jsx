@@ -4,8 +4,32 @@ import Contact from "../../pages/Contact";
 export default function UserCard({ imgObj, name, cell }) {
   const navigate = useNavigate();
 
+  function saveSingleContact(img, name, cell) {
+    const singelContact = {
+      img: img,
+      title: name.title,
+      firstName: name.first,
+      lastName: name.last,
+      phone: cell,
+    };
+    let recentContacts = JSON.parse(localStorage.getItem("recent")) || [];
+    const isDublicate = recentContacts.some((item) => item.phone === cell);
+
+    if (isDublicate) {
+      return;
+    }
+
+    if (recentContacts.length >= 4) {
+      recentContacts.shift();
+    }
+
+    recentContacts.push(singelContact);
+    localStorage.setItem("recent", JSON.stringify(recentContacts));
+  }
+
   function navigateHandler() {
     navigate("/contact", { state: { imgObj, name, cell } });
+    saveSingleContact(imgObj, name, cell);
   }
 
   return (
