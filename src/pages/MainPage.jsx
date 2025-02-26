@@ -7,8 +7,7 @@ export default function MainPage() {
   const [users, setUsers] = useState([]);
   const inputRef = useRef(null);
   const [searchResult, setSearchResult] = useState([]);
-  const recentData = JSON.parse(localStorage.getItem("recent"));
-
+  const recentData = JSON.parse(localStorage.getItem("recent")) || [];
 
   async function fetcher() {
     const data = await api.get("api/?results=50");
