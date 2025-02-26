@@ -70,7 +70,7 @@ export default function MainPage() {
           ))}
         </div>
       </div>
-      <div className="userCardContainer">
+      <div className="flex flex-wrap items-center justify-between p-[1rem]">
         {searchResult.length === 0
           ? users.map((user) => (
               <UserCard

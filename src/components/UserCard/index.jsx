@@ -34,12 +34,15 @@ export default function UserCard({ imgObj, name, cell }) {
 
   return (
     <>
-      <div onClick={navigateHandler} className="userCardContainer__item">
-        <img src={imgObj.large} alt="user-image" />
-        <h3>
+      <div
+        onClick={navigateHandler}
+        className="w-[10rem] h-[15rem] flex flex-col items-center mr-[0.5rem] ml-[0.5rem]"
+      >
+        <img className=" rounded-full" src={imgObj.large} alt="user-image" />
+        <h3 className="text-center text-[1rem] mt-[0.8rem] text-slate-800 font-bold">
           {name.title}.{name.first} {name.last}
         </h3>
-        <span>{cell}</span>
+        <span className="text-[0.85rem] mt-[0.3rem] text-slate-600">{cell}</span>
       </div>
     </>
   );
