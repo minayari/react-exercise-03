@@ -1,8 +1,10 @@
-* {
+@import "tailwindcss";
+
+/* * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
+} */
 
 .userCardContainer {
   display: flex;
@@ -37,23 +39,23 @@
   margin-top: 0.3rem;
 }
 
-.inputContainer {
+/* .inputContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+} */
 
-.inputContainer input {
+/* .inputContainer input {
   width: 20rem;
   height: 2rem;
   margin-top: 1rem;
   padding: 0.5rem;
-}
+} */
 
-.inputContainer input:focus {
+/* .inputContainer input:focus {
   outline: none;
-}
+} */
 
 .singelContact {
   display: flex;
@@ -88,7 +90,7 @@
   margin: 2rem 0;
 }
 
-.recentContainer h2{
+.recentContainer h2 {
   font-size: 1.3rem;
   color: grey;
 }

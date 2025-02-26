@@ -47,8 +47,9 @@ export default function MainPage() {
 
   return (
     <>
-      <div className="inputContainer">
+      <div className="flex justify-center items-center">
         <input
+          className="w-[20rem] h-[2rem] mt-[1rem] p-[0.5rem] bg-zinc-200 rounded-[0.5rem] focus:outline-none"
           ref={inputRef}
           onChange={searchChangeHandler}
           type="text"
