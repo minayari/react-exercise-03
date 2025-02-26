@@ -57,7 +57,7 @@ export default function MainPage() {
         />
       </div>
       <div className="p-[1rem] mt-[2rem] mb-[2rem] ring ring-slate-400/50">
-        <h2 className="text-[1.3rem] text-slate-900">Recent contacts:</h2>
+        <h2 className="text-[1.3rem] text-slate-700">Recent contacts:</h2>
         <div className="flex justify-evenly mt-[1rem] mb-[1rem]">
           {recentData.map((data) => (
             <RecentCard
