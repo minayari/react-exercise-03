@@ -9,7 +9,6 @@ export default function MainPage() {
   const [searchResult, setSearchResult] = useState([]);
   const recentData = JSON.parse(localStorage.getItem("recent"));
 
-  console.log(recentData);
 
   async function fetcher() {
     const data = await api.get("api/?results=50");
