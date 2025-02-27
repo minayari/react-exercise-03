@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import UserCard from "../components/UserCard";
 import api from "../api/api";
 import RecentCard from "../components/recentCard";
+import Loader from "../components/loader";
 
 export default function MainPage() {
   const [users, setUsers] = useState([]);
@@ -57,35 +58,45 @@ export default function MainPage() {
       <div className="p-[1rem] mt-[2rem] mb-[2rem] ring ring-slate-400/50">
         <h2 className="text-[1.3rem] text-slate-700">Recent contacts:</h2>
         <div className="flex justify-evenly mt-[1rem] mb-[1rem]">
-          {recentData.map((data) => (
-            <RecentCard
-              img={data.img}
-              title={data.title}
-              firstName={data.firstName}
-              lastName={data.lastName}
-              key={`${data.firstName}-${data.phone}`}
-            />
-          ))}
+          {recentData.length === 0 ? (
+            <p className="text-[1.5rem] text-slate-400 mb-[1.2rem]">
+              No recent contact
+            </p>
+          ) : (
+            recentData.map((data) => (
+              <RecentCard
+                img={data.img}
+                title={data.title}
+                firstName={data.firstName}
+                lastName={data.lastName}
+                key={`${data.firstName}-${data.phone}`}
+              />
+            ))
+          )}
         </div>
       </div>
       <div className="flex flex-wrap items-center justify-between p-[1rem]">
-        {searchResult.length === 0
-          ? users.map((user) => (
-              <UserCard
-                key={`${user.id.value ?? user.name.first}-${user.cell} `}
-                imgObj={user.picture}
-                name={user.name}
-                cell={user.cell}
-              />
-            ))
-          : searchResult.map((user) => (
-              <UserCard
-                key={`${user.id.value ?? user.name.first}-${user.cell} `}
-                imgObj={user.picture}
-                name={user.name}
-                cell={user.cell}
-              />
-            ))}
+        {users.length === 0 ? (
+          <Loader />
+        ) : searchResult.length === 0 ? (
+          users.map((user) => (
+            <UserCard
+              key={`${user.id.value ?? user.name.first}-${user.cell} `}
+              imgObj={user.picture}
+              name={user.name}
+              cell={user.cell}
+            />
+          ))
+        ) : (
+          searchResult.map((user) => (
+            <UserCard
+              key={`${user.id.value ?? user.name.first}-${user.cell} `}
+              imgObj={user.picture}
+              name={user.name}
+              cell={user.cell}
+            />
+          ))
+        )}
       </div>
     </>
   );
